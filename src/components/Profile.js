@@ -6,7 +6,7 @@ function Profile ({profile}){
         //     <p>Name :{name}</p>
         //     <p>Location :{location}</p>
         // </div>
-        <Card style={{ width: '18rem'}} className='col-md-4'>
+        <Card style={{ width: '18rem'}} className='col-md-2 m-1'>
         <Card.Img variant="top" src={profile.img} />
         <Card.Body>
           <Card.Title> <h2>{profile.name}</h2></Card.Title>

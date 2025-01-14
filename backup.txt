@@ -17,16 +17,19 @@
   function printName(){
     console.log('Sam');
   }
+
 // printName()
 // type 2
   function getName(){
     const name ='Saad';
     return name;
   }
+
   // type 3 
   function printPassedName(name){
     console.log(name);
   }
+  
   // printPassedName("saad")
   // type 4
 
@@ -101,3 +104,12 @@
       <p> result div:{div (2,2)}</p>
     </div>
   );
+
+  //for settin the profile 
+    setProfiles((old)=>[{
+    name: name,
+    desc: desc,
+    link: link,
+    },
+    ...old
+    ])
