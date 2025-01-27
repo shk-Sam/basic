@@ -111,7 +111,7 @@ function App() {
   const [profiles, setProfiles] = useState([]);
   const [sinlgeProfile, setSingleProfile] = useState({
     id:'',
-    insta:'',
+    link:'',
     name:'',
     desc:'',
   });
@@ -177,10 +177,13 @@ function App() {
     })
     .then((res) => {return res.json()})
     .then((res) => {
-      // setProfiles(res)
-      // setName("");
-      // setDesc("");
-      // setLink("");
+      setProfiles(res)
+      setSingleProfile({
+        id:'',
+        link:'',
+        name:'',
+        desc:'',
+      })
     }) 
     .catch((error) => {console.log(error)})
   }
@@ -254,7 +257,7 @@ function App() {
       <div className="row">
         {/* Profile List */}
         <div className="col-md-8">
-          <ProfileTable profiles={profiles} set={setSingleProfile} />
+          <ProfileTable profiles={profiles} set={setSingleProfile} setProfile={setProfiles} />
         </div>
         {/* Create Profile Form */}
       <div className="col-md-4">

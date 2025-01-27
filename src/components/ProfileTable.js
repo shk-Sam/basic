@@ -2,7 +2,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { Profiler } from "react";
 
-function ProfileTable({ profiles, set }) {
+function ProfileTable({ profiles, set , setProfile }) {
   return (
     <Table striped bordered hover>
       <thead>
@@ -27,7 +27,7 @@ function ProfileTable({ profiles, set }) {
                 </a>
               </td>
               <td>
-                  <Button
+                  <Button className="m-1"
                   onClick={()=>{
                     fetch('http://localhost:8000/profile/' +profile.id)
                     .then((res) => {
@@ -38,6 +38,19 @@ function ProfileTable({ profiles, set }) {
                     })
                     .catch((error) => {console.log(error)})
                   }}>Edit</Button>
+                  <Button
+                  onClick={()=>{
+                    fetch('http://localhost:8000/profileDelete/' +profile.id , {
+                      method: 'DELETE',
+                    })
+                    .then((res) => {
+                      return res.json();
+                    })
+                    .then((res) => {
+                      setProfile(res)
+                    })
+                    .catch((error) => {console.log(error)})
+                  }}>Delete</Button>
               </td>
             </tr>
           );
