@@ -101,6 +101,11 @@ import Btn from "./components/Btn";
 import Profile from "./components/Profile";
 import ProfileTable from "./components/ProfileTable";
 import { useEffect, useState } from "react";
+import { BrowserRouter, Link, Route, Router, Routes } from "react-router-dom";
+import CreateProfile from "./components/CreateProfile";
+import UpdateProfile from "./components/UpdateProfile";
+import Home from "./components/home";
+
 
 function App() {
   const [name, setName] = useState("")
@@ -190,6 +195,30 @@ function App() {
 
   return (
     <div className="container mt-4">
+
+<BrowserRouter>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/create-profile">Create Profile</Link>
+            </li>
+            <li>
+              <Link to="/update-profile">Update Profile</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create-profile" element={<CreateProfile />} />
+          <Route path="/update-profile" element={<UpdateProfile />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
       <h1>Profiles</h1>
       <div className="row mb-5">
       <div>
