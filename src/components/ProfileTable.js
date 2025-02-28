@@ -1,6 +1,5 @@
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import { Profiler } from "react";
 
 function ProfileTable({ profiles, set , setProfile }) {
   return (
